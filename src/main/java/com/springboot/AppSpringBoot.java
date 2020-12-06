@@ -1,6 +1,5 @@
 package com.springboot;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan("com.springboot")
 //@SpringBootApplication 无法扫到 mybatis, 需要专门的 @MapperScan来扫
-@MapperScan("com.springboot")
+//@MapperScan("com.springboot.member")
 public class AppSpringBoot {
 	public static void main(String[] args) {
 		SpringApplication.run(AppSpringBoot.class, args);

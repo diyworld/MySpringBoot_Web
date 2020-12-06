@@ -4,13 +4,17 @@ spring:
       force: true
       charset: UTF-8
    datasource:
-      ##这里如果是多数据源，需要使用 jdbc-url
-      ##url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false
-      url: jdbc:mysql://localhost:3306/springboot_db?serverTimezone=GMT&characterEncoding=UTF-8
-      username: root
-      password: Qingliu987
-      ##spring.datasource.driver-class-name: com.mysql.jdbc.Driver
-      driver-class-name: com.mysql.cj.jdbc.Driver
+      member:
+         ##这里如果是多数据源，需要使用 jdbc-url
+         jdbc-url: jdbc:mysql://localhost:3306/springboot_member?serverTimezone=GMT&characterEncoding=UTF-8
+         username: root
+         password: Qingliu987
+         driver-class-name: com.mysql.cj.jdbc.Driver
+      order:
+         jdbc-url: jdbc:mysql://localhost:3306/springboot_order?serverTimezone=GMT&characterEncoding=UTF-8
+         username: root
+         password: Qingliu987
+         driver-class-name: com.mysql.cj.jdbc.Driver
    freemarker:
       allow-request-override: false
       cache: false
