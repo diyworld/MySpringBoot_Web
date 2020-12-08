@@ -26,6 +26,7 @@ public class OrderService {
 
 	/* http://localhost:8080/findOrderById?orderId=1 */
 	public OrderEntity findOrderById(Integer orderId) {
+		int j = 1/orderId; //测试项
 		return orderMapper.findById(orderId);
 	}
 	
