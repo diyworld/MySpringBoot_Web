@@ -1,8 +1,8 @@
-package com.springboot.order;
+package com.springboot.member.service;
 
 import java.sql.Date;
 
-public class OrderEntity {
+public class MemberEntity {
 	private String name;
 	private Integer id;
 	private Date date;

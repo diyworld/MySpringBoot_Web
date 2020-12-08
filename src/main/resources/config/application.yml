@@ -6,15 +6,31 @@ spring:
    datasource:
       member:
          ##这里如果是多数据源，需要使用 jdbc-url
-         jdbc-url: jdbc:mysql://localhost:3306/springboot_member?serverTimezone=GMT&characterEncoding=UTF-8
+         url: jdbc:mysql://localhost:3306/springboot_member?serverTimezone=GMT&characterEncoding=UTF-8
          username: root
          password: Qingliu987
-         driver-class-name: com.mysql.cj.jdbc.Driver
+         borrowConnectionTimeout: 30
+         loginTimeout: 30
+         maintenanceInterval: 60
+         maxIdleTime: 60
+         maxLifeTime: 20000
+         maxPoolSize: 25
+         minPoolSize: 3
+         uniqueResourceName: memberDatasource
+         ##driver-class-name: com.mysql.cj.jdbc.Driver
       order:
-         jdbc-url: jdbc:mysql://localhost:3306/springboot_order?serverTimezone=GMT&characterEncoding=UTF-8
+         url: jdbc:mysql://localhost:3306/springboot_order?serverTimezone=GMT&characterEncoding=UTF-8
          username: root
          password: Qingliu987
-         driver-class-name: com.mysql.cj.jdbc.Driver
+         borrowConnectionTimeout: 30
+         loginTimeout: 30
+         maintenanceInterval: 60
+         maxIdleTime: 60
+         maxLifeTime: 20000
+         maxPoolSize: 25
+         minPoolSize: 3
+         uniqueResourceName: orderDatasource
+         ##driver-class-name: com.mysql.cj.jdbc.Driver
    freemarker:
       allow-request-override: false
       cache: false

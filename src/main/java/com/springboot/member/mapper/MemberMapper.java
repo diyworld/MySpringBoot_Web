@@ -1,4 +1,4 @@
-package com.springboot.member;
+package com.springboot.member.mapper;
 
 import java.sql.Date;
 
@@ -9,6 +9,8 @@ import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.type.JdbcType;
+
+import com.springboot.member.service.MemberEntity;
 
 @Mapper
 //@Repository
@@ -22,6 +24,14 @@ public interface MemberMapper {
 	    @Result(column="submission_date", property="date", jdbcType=JdbcType.DATE)
 	})
 	MemberEntity findByName(@Param("name") String name);
+	
+	@Select("SELECT * FROM member_tbl WHERE member_id = #{id}")
+	@Results({
+		@Result(column="member_id", property="id", jdbcType=JdbcType.INTEGER),
+	    @Result(column="member_name", property="name", jdbcType=JdbcType.VARCHAR),
+	    @Result(column="submission_date", property="date", jdbcType=JdbcType.DATE)
+	})
+	MemberEntity findById(@Param("id") Integer id);
 	
 	@Insert("INSERT INTO member_tbl(member_name, submission_date) VALUES(#{name}, #{date})")
 	boolean insert(@Param("name") String name, @Param("date") Date date);
