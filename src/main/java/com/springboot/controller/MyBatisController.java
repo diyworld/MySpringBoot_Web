@@ -21,8 +21,10 @@ public class MyBatisController {
 	@Autowired
 	private OrderService orderService;
 	
-	@Value("${spring.privateconfig.config-name}")
-	public String myConfig;
+	@Value("${privateconfig.config-name}")
+	public String privateConfig;
+	@Value("${privateconfig.url}")
+	public String privateConfigUrl;
 	
 	@ResponseBody
 	@RequestMapping("/findMemberByName")
@@ -66,6 +68,13 @@ public class MyBatisController {
 	@ResponseBody
 	@RequestMapping("/privateConfig")
 	public String getPrivateConfig() {
-		return myConfig;
+		return privateConfig;
+	}
+	
+	/* 多环境配置 */
+	@ResponseBody
+	@RequestMapping("/privateConfigUrl")
+	public String getPrivateConfigUrl() {
+		return privateConfigUrl;
 	}
 }
