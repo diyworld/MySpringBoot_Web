@@ -3,6 +3,7 @@ package com.springboot.controller;
 import java.sql.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,6 +20,9 @@ public class MyBatisController {
 	private MemberService memberService;
 	@Autowired
 	private OrderService orderService;
+	
+	@Value("${spring.privateconfig.config-name}")
+	public String myConfig;
 	
 	@ResponseBody
 	@RequestMapping("/findMemberByName")
@@ -56,5 +60,12 @@ public class MyBatisController {
 	@RequestMapping("/insertOrder")
 	public String insertOrder(String orderName, Date date) {
 		return orderService.insertOrder(orderName, date);
+	}
+	
+	/* 读取配置文件内容 */
+	@ResponseBody
+	@RequestMapping("/privateConfig")
+	public String getPrivateConfig() {
+		return myConfig;
 	}
 }

@@ -44,3 +44,5 @@ spring:
       suffix: .ftlh
       ##模板文件目录
       template-loader-path: classpath:/templates
+   privateconfig: 
+      config-name: myconfig
